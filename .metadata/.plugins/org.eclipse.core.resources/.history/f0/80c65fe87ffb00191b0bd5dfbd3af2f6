@@ -1,0 +1,83 @@
+package service.imp;
+
+import java.util.List;
+
+import dao.imp.UserDAO;
+import entity.User;
+import service.IUserService;
+
+public class UserService implements IUserService {
+
+	private UserDAO userDAO;
+
+	public UserService() {
+	}
+
+	public UserService(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+
+	@Override
+	public void addUser(User user) {
+		if(user==null) {
+			return;
+		}
+		if(user.getId()!=null) {
+			return;
+		}
+		String userName = user.getUserName();
+		List<User> users = userDAO.getUserByUserName(userName);
+		if(users.size()<=0) {
+			userDAO.addUser(user);
+		}else {
+			throw new RuntimeException("该用户名已存在，请更换！");
+		}
+	}
+
+	@Override
+	public void delete(User user) {
+		if(user==null) {
+			return;
+		}
+		if(user.getId()==null) {
+			return;
+		}
+		userDAO.deleteUser(user);
+	}
+
+	@Override
+	public void update(User user) {
+		if(user==null) {
+			return;
+		}
+		if(user.getId()==null) {
+			return;
+		}
+		userDAO.updateUser(user);
+	}
+
+	@Override
+	public User getUserByID(String id) {
+		return null;
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		return null;
+	}
+
+	@Override
+	public boolean validateUser(String userName, String password) {
+		return false;
+	}
+
+	@Override
+	public String getUserIdByName(String userName) {
+		return null;
+	}
+
+}

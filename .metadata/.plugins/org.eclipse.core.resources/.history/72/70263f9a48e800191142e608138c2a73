@@ -1,0 +1,51 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Test {
+	public static void main(String[] args) {
+		try {
+			String driverName = "com.mysql.jdbc.Driver";
+			Class.forName(driverName);
+			String DB_URL = "jdbc:mysql://localhost:3306/community?user=root&password=123456zxcvbn&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8";
+			Connection conn = DriverManager.getConnection(DB_URL);
+			Connection conn1 = DriverManager.getConnection(DB_URL);
+			Connection conn2 = DriverManager.getConnection(DB_URL);
+			Connection conn3 = DriverManager.getConnection(DB_URL);
+			Connection conn4 = DriverManager.getConnection(DB_URL);
+			Connection conn5 = DriverManager.getConnection(DB_URL);
+			Connection conn6 = DriverManager.getConnection(DB_URL);
+			Connection conn7 = DriverManager.getConnection(DB_URL);
+			Connection conn8 = DriverManager.getConnection(DB_URL);
+			Connection conn9 = DriverManager.getConnection(DB_URL);
+			Connection conn10 = DriverManager.getConnection(DB_URL);
+			Connection conn11 = DriverManager.getConnection(DB_URL);
+			Connection conn12 = DriverManager.getConnection(DB_URL);
+			
+			Connection conn13 = DriverManager.getConnection(DB_URL);
+			Connection conn14 = DriverManager.getConnection(DB_URL);
+			Connection conn15 = DriverManager.getConnection(DB_URL);
+			
+			Connection conn16 = DriverManager.getConnection(DB_URL);
+			Connection conn17 = DriverManager.getConnection(DB_URL);
+			Connection conn18 = DriverManager.getConnection(DB_URL);
+			Connection conn19 = DriverManager.getConnection(DB_URL);
+			
+			Connection conn20 = DriverManager.getConnection(DB_URL);
+			Connection conn21 = DriverManager.getConnection(DB_URL);
+			Connection conn22 = DriverManager.getConnection(DB_URL);
+			Connection conn23 = DriverManager.getConnection(DB_URL);
+			Connection conn24 = DriverManager.getConnection(DB_URL);
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Driver class not find");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("sql wrong");
+			e.printStackTrace();
+		}
+	}
+
+}

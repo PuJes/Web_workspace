@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory name="Community">
+		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3360/community</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">123456zxcvbn</property>
+		<!-- 指定映射文件列表 -->
+		<mapping resource="domain/User.hbm.xml" />
+		<mapping resource="domain/Information.hbm.xml" />
+		<mapping resource="domain/Comment.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

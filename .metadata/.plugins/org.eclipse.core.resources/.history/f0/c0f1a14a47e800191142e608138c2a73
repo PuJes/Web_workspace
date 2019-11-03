@@ -1,0 +1,55 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class MyDb {
+	Connection conn=null;
+	public static void main(String[] args) {
+		MyDb example1 = new MyDb();
+		String sql = "select * from users;";
+		try {
+//			int res = example1.update(sql);
+			ResultSet res =example1.query(sql);
+			while(res.next()) {
+				int id = res.getInt("id");
+				String username = res.getString("username");
+				String password = res.getString("password");
+				int age = res.getInt("age");
+				System.out.println(id+" "+username+" "+password+" "+age);
+			}
+		} catch (ClassNotFoundException e) {
+			System.out.println("Driver class not find");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("sql wrong");
+			e.printStackTrace();
+		}
+		
+	}
+	private Connection getConnection() throws SQLException, ClassNotFoundException {
+		String driverName = "com.mysql.jdbc.Driver";
+		Class.forName(driverName);
+		String DB_URL = "jdbc:mysql://localhost:3306/community?user=root&password=123456zxcvbn&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8";
+		this.conn = DriverManager.getConnection(DB_URL);
+		return conn;
+	}
+	public int update(String sql) throws SQLException, ClassNotFoundException {
+		conn = getConnection();
+		Statement stnt = conn.createStatement();
+		int res = stnt.executeUpdate(sql);
+		return res;
+	}
+	public ResultSet query(String sql) throws SQLException, ClassNotFoundException {
+		conn = getConnection();
+		Statement stnt = conn.createStatement();
+		ResultSet res = stnt.executeQuery(sql);
+		return res;
+	}
+	public void releaseConnection() throws SQLException {
+		this.conn.close();
+		this.conn=null;
+	}
+}
+

@@ -1,0 +1,40 @@
+package service.imp;
+
+import java.util.List;
+
+import entity.Information;
+import service.IInfoService;
+
+public class InfoService implements IInfoService{
+
+	@Override
+	public void addInfo(Information information) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteInfo(Information information) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateInfo(Information information) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Information getInfoByID(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Information> getAllInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

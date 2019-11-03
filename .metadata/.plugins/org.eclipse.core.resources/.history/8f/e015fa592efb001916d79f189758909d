@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" >
+<hibernate-configuration>
+  <session-factory>
+  	<!-- 数据库驱动 -->
+  	<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+  	<!-- 数据库地址url -->
+  	<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/community?serverTimezone=Asia/Shanghai</property>
+  	<!-- 数据库用户密码 -->
+  	<property name="hibernate.connection.username">root</property>
+  	<property name="hibernate.connection.password">123456zxcvbn</property>
+  	<!-- 方言 -->
+  	<property name="dialect">org.hibernate.dialect.MySQLDialect </property>
+  	<property name="hibernate.current_session_context_class">thread</property>
+  	<!-- 映射文件 -->
+  	<mapping resource="entity/User.hbm.xml" />
+  	<mapping resource="entity/Comment.hbm.xml" />
+  	<mapping resource="entity/Information.hbm.xml" />
+  </session-factory>
+</hibernate-configuration>

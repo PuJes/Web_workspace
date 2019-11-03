@@ -1,0 +1,51 @@
+package service.imp;
+
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder.In;
+
+import dao.IInfoDAO;
+import entity.Information;
+import service.IInfoService;
+
+public class InfoService implements IInfoService{
+
+	private IInfoDAO infoDAO;
+	
+	public InfoService() {
+	}
+	
+	public void setInfoDAO(IInfoDAO infoDAO) {
+		this.infoDAO = infoDAO;
+	}
+	
+	public InfoService(IInfoDAO infoDAO) {
+		this.infoDAO = infoDAO;
+	}
+	
+	@Override
+	public void addInfo(Information information) {
+		
+	}
+
+	@Override
+	public void deleteInfo(Information information) {
+		
+	}
+
+	@Override
+	public void updateInfo(Information information) {
+		
+	}
+
+	@Override
+	public Information getInfoByID(String id) {
+		return null;
+	}
+
+	@Override
+	public List<Information> getAllInfo() {
+		return null;
+	}
+
+}

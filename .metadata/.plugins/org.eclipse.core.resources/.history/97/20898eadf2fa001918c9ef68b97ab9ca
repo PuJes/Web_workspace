@@ -1,0 +1,36 @@
+package action;
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import dao.imp.UserDAO;
+import entity.User;
+public class LoginAction extends ActionSupport{
+	private static final long serialVersionUID =1L;
+	public String username;
+	public String password;
+	private UserDAO userDAO;
+	public String execute() {
+		userDAO =  new UserDAO();
+		List<User> users = userDAO.getUserByUserName(username);
+		if(!username.equals(users.get(0).getUserName())) {
+			super.addFieldError("username", "”√ªß√˚¥ÌŒÛ");
+			return ERROR;
+		}
+		if(!password.equals("123")) {
+			super.addFieldError("password", "√‹¬Î¥ÌŒÛ");
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+	@Override
+	public void validate() {
+		if(username==null||username.length()==0) {
+			super.addActionError("yonghumingbunengweikong");
+		}
+		if(password==null||password.length()==0) {
+			super.addActionError("passwordbunengweikong");
+		}
+	}
+
+}

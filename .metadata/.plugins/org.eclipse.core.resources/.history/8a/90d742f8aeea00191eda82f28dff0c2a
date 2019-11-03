@@ -1,0 +1,68 @@
+package service.imp;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import dao.imp.UserDAO;
+import domain.User;
+import service.IUserService;
+
+public class UserService implements IUserService{
+	public static void main(String[] args) {
+		UserService test = new UserService();
+		User user = new User(16,"pujie","zxcvbn","noon","oh",8,"yeah");
+		System.out.println(test.newUser(user));
+	}
+
+	@Override
+	public int newUser(User user) {
+		int res = hasUser(user.getUsername());
+		if(res==001) {
+			if(user.getPassword()==null||user.getUsername()==null) {
+				res = 003;//use state code to identify exception type;
+				return res;
+			}
+			UserDAO newUser = new UserDAO();
+			try {
+				newUser.addUser(user);
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+				return 004;
+			}
+		}
+		return res;
+	}
+
+	@Override
+	public User getUser(String id) {
+		UserDAO getUser = new UserDAO();
+		List<User> 
+		return null;
+	}
+
+	@Override
+	public int validUser(String username, String password) {
+		return 0;
+	}
+
+	@Override
+	public int hasUser(String username) {
+		if(username==null) {
+			return 000;
+		}
+		List<User> users = new ArrayList<>();
+		UserDAO hasUser = new UserDAO();
+		try {
+			users = hasUser.getUserByName(username);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			return 004;
+		}
+		if(users.size()>0) {
+			return 002;
+		}
+		return 001;
+	}
+
+}

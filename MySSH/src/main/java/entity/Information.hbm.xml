@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-10-30 9:37:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="entity.Information" table="INFORMATION">
+        <id name="id" type="java.lang.String">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <property name="publishingTime" type="java.util.Date">
+            <column name="PUBLISHINGTIME" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <many-to-one name="publishingUser" class="entity.User" fetch="join">
+            <column name="PUBLISHINGUSER" />
+        </many-to-one>
+        <set name="comments" table="COMMENT" inverse="false" lazy="true">
+            <key>
+                <column name="ID" />
+            </key>
+            <one-to-many class="entity.Comment" />
+        </set>
+    </class>
+</hibernate-mapping>

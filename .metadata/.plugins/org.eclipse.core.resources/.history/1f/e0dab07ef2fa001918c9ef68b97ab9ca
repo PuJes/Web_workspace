@@ -1,0 +1,28 @@
+package action;
+import com.opensymphony.xwork2.ActionSupport;
+public class LoginAction extends ActionSupport{
+	private static final long serialVersionUID =1L;
+	public String username;
+	public String password;
+	public String execute() {
+		if(!username.equals("admin")) {
+			super.addFieldError("username", "”√ªß√˚¥ÌŒÛ");
+			return ERROR;
+		}
+		if(!password.equals("123")) {
+			super.addFieldError("password", "√‹¬Î¥ÌŒÛ");
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+	@Override
+	public void validate() {
+		if(username==null||username.length()==0) {
+			super.addActionError("yonghumingbunengweikong");
+		}
+		if(password==null||password.length()==0) {
+			super.addActionError("passwordbunengweikong");
+		}
+	}
+
+}

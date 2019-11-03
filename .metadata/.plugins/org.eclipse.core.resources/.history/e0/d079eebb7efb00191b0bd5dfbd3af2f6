@@ -1,0 +1,45 @@
+package service.imp;
+
+import java.util.List;
+
+import entity.User;
+import service.IUserService;
+
+public class UserService implements IUserService{
+
+	@Override
+	public void addUser(User user) {
+		
+	}
+
+	@Override
+	public void delete(User user) {
+		
+	}
+
+	@Override
+	public void update(User user) {
+		
+	}
+
+	@Override
+	public User getUserByID(String id) {
+		return null;
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		return null;
+	}
+
+	@Override
+	public boolean validateUser(String userName, String password) {
+		return false;
+	}
+
+	@Override
+	public String getUserIdByName(String userName) {
+		return null;
+	}
+
+}
